@@ -12,11 +12,11 @@ type User struct {
 
 type Book struct {
 	ID        uint      `json:"id" gorm:"primaryKey"`
-	Title     string    `json:"title" gorm:"not null"`
-	Author    string    `json:"author" gorm:"not null"`
-	ISBN      string    `json:"isbn" gorm:"uniqueIndex;not null"`
+	Title     string    `json:"title"    gorm:"type:varchar(255);not null"`
+	Author    string    `json:"author"   gorm:"type:varchar(255);not null"`
+	ISBN      string    `json:"isbn"     gorm:"type:varchar(20);uniqueIndex;not null"`
 	Quantity  int       `json:"quantity" gorm:"not null;default:1"`
-	Category  string    `json:"category" gorm:"not null"`
+	Category  string    `json:"category" gorm:"type:varchar(100);not null"`
 	CreatedAt time.Time `json:"created_at"`
 	UpdatedAt time.Time `json:"updated_at"`
 }
