@@ -31,6 +31,10 @@ type UpdateBookRequest struct {
 	Category *string `json:"category"`
 }
 
+type BorrowBookRequest struct {
+	BookID uint `json:"book_id" binding:"required"`
+}
+
 type PaginationRequest struct {
 	Page  int `form:"page,default=1" binding:"min=1"`
 	Limit int `form:"limit,default=10" binding:"min=1,max=100"`

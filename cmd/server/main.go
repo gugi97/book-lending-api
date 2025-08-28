@@ -41,10 +41,8 @@ func main() {
 	bookUC := usecase.NewBookUseCase(bookRepo)
 	lendingUC := usecase.NewLendingUseCase(lendingRepo, bookRepo)
 
-	// Initialise JWT utility
-	jwtUtil := pkg.NewJWTUtil(cfg.JWT.Secret)
-
 	// Initialise handlers
+	jwtUtil := pkg.NewJWTUtil(cfg.JWT.Secret)
 	authHandler := handler.NewAuthHandler(authUC, jwtUtil)
 	bookHandler := handler.NewBookHandler(bookUC)
 	lendingHandler := handler.NewLendingHandler(lendingUC)
