@@ -7,8 +7,6 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-password}
       MYSQL_DATABASE: ${DB_NAME:-book_lending}
-      MYSQL_USER: ${DB_USER:-root}
-      MYSQL_PASSWORD: ${DB_PASSWORD:-password}
     ports:
       - "3306:3306"
     volumes:
@@ -34,8 +32,6 @@ services:
       JWT_SECRET: ${JWT_SECRET:-supersecretkey}
     ports:
       - "8080:8080"
-    volumes:
-      - .:/app
 
 volumes:
   db_data:
